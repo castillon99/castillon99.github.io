@@ -1,0 +1,20 @@
+[
+  {
+    "nombre": "Nombre Asesor 1",
+    "foto": "fotos/asesor1.jpg",
+    "whatsapp": "528100000001",
+    "mensaje": "Hola, me contacto desde la página de ADBR."
+  },
+  {
+    "nombre": "Nombre Asesor 2",
+    "foto": "fotos/asesor2.jpg",
+    "whatsapp": "528100000002",
+    "mensaje": "Hola, me contacto desde la página de ADBR."
+  },
+  {
+    "nombre": "Nombre Asesor 3",
+    "foto": "fotos/asesor3.jpg",
+    "whatsapp": "528100000003",
+    "mensaje": "Hola, me contacto desde la página de ADBR."
+  }
+]
