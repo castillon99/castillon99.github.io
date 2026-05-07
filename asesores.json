@@ -1,20 +1,26 @@
 [
-  {
-    "nombre": "Nombre Asesor 1",
-    "foto": "fotos/asesor1.jpg",
-    "whatsapp": "528100000001",
-    "mensaje": "Hola, me contacto desde la página de ADBR."
-  },
-  {
-    "nombre": "Nombre Asesor 2",
-    "foto": "fotos/asesor2.jpg",
-    "whatsapp": "528100000002",
-    "mensaje": "Hola, me contacto desde la página de ADBR."
-  },
-  {
-    "nombre": "Nombre Asesor 3",
-    "foto": "fotos/asesor3.jpg",
-    "whatsapp": "528100000003",
-    "mensaje": "Hola, me contacto desde la página de ADBR."
-  }
+  { "nombre": "Abil Razo",          "foto": "fotos/abil-razo.jpg",          "whatsapp": "528122038273", "email": "arazo@adbr.mx" },
+  { "nombre": "Adriana Elizondo",   "foto": "fotos/adriana-elizondo.jpg",   "whatsapp": "528341273557", "email": "aelizondo@adbr.mx" },
+  { "nombre": "Berta Sepúlveda",    "foto": "fotos/berta-sepulveda.jpg",    "whatsapp": "528110507257", "email": "sepulveda@adbr.mx" },
+  { "nombre": "Cynthia Soto",       "foto": "fotos/cynthia-soto.jpg",       "whatsapp": "528183625261", "email": "csoto@adbr.mx" },
+  { "nombre": "Diana Huerta",       "foto": "fotos/diana-huerta.jpg",       "whatsapp": "528183624230", "email": "dhuerta@adbr.mx" },
+  { "nombre": "Diana Nuñez",        "foto": "fotos/diana-nunez.jpg",        "whatsapp": "528180885875", "email": "dnunez@adbr.mx" },
+  { "nombre": "Elizabeth Cantú",    "foto": "fotos/elizabeth-cantu.jpg",    "whatsapp": "528119117294", "email": "ecantu@adbr.mx" },
+  { "nombre": "Erika Martinez",     "foto": "fotos/erika-martinez.jpg",     "whatsapp": "528115169809", "email": "emartinez@adbr.mx" },
+  { "nombre": "Eva Garza",          "foto": "fotos/eva-garza.jpg",          "whatsapp": "528112127525", "email": "egarza@adbr.mx" },
+  { "nombre": "Fernando Castillón", "foto": "fotos/fernando-castillon.jpg", "whatsapp": "528120012509", "email": "fcastillon@adconsulting.mx" },
+  { "nombre": "Fernando Martínez",  "foto": "fotos/fernando-martinez.jpg",  "whatsapp": "528119093077", "email": "fmartinez@adbr.mx" },
+  { "nombre": "Gabriela Parás",     "foto": "fotos/gabriela-paras.jpg",     "whatsapp": "528183093522", "email": "gparas@adbr.mx" },
+  { "nombre": "Isabel Gracia",      "foto": "fotos/isabel-gracia.jpg",      "whatsapp": "528112430826", "email": "igracia@adbr.mx" },
+  { "nombre": "Jaime Aguilar",      "foto": "fotos/jaime-aguilar.jpg",      "whatsapp": "528110254074", "email": "jaguilar@adbr.mx" },
+  { "nombre": "Jesús Pérez",        "foto": "fotos/jesus-perez.jpg",        "whatsapp": "528110294666", "email": "jperez@adbr.mx" },
+  { "nombre": "Letty Gonzalez",     "foto": "fotos/letty-gonzalez.jpg",     "whatsapp": "528120221009", "email": "lgonzalez@adbr.mx" },
+  { "nombre": "Lydia Tamez",        "foto": "fotos/lydia-tamez.jpg",        "whatsapp": "528110647826", "email": "ltamez@adbr.mx" },
+  { "nombre": "Mane Bortoni",       "foto": "fotos/mane-bortoni.jpg",       "whatsapp": "528182709781", "email": "mbortoni@adbr.mx" },
+  { "nombre": "Marcela Cárdenas",   "foto": "fotos/marcela-cardenas.jpg",   "whatsapp": "528119128918", "email": "mcardenas@adbr.mx" },
+  { "nombre": "Marcelo Martínez",   "foto": "fotos/marcelo-martinez.jpg",   "whatsapp": "528140728228", "email": "admin@adbr.mx" },
+  { "nombre": "Patricia Kavande",   "foto": "fotos/patricia-kavande.jpg",   "whatsapp": "528182006971", "email": "pkavande@adbr.mx" },
+  { "nombre": "Sergio Flores",      "foto": "fotos/sergio-flores.jpg",      "whatsapp": "528126343950", "email": "sflores@adbr.mx" },
+  { "nombre": "Veronica Serrano",   "foto": "fotos/veronica-serrano.jpg",   "whatsapp": "528117997543", "email": "vserrano@adbr.mx" },
+  { "nombre": "Victoria Santos",    "foto": "fotos/victoria-santos.jpg",    "whatsapp": "528110402416", "email": "vsantost@adbr.mx" }
 ]

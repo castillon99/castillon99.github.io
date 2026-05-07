@@ -300,15 +300,174 @@
     </div>
   </section>
 
-  <!-- Secciones restantes se cargan en fase 2 -->
-  <section class="section pronto" id="diferenciadores">
-    <div class="container centered">
-      <div class="pronto-badge">Próximamente</div>
-      <h3>Por qué elegirnos · Propiedades · Asesores · Contacto</h3>
-      <p>Esta página está en construcción activa. El contenido completo estará disponible muy pronto.</p>
-      <a href="https://wa.me/528181431003" target="_blank" class="btn-primary" style="margin-top:2rem">
-        <i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp
-      </a>
+  <!-- ══════════════════════════════════════════════ POR QUÉ ELEGIRNOS -->
+  <section class="section diferenciadores" id="diferenciadores">
+    <div class="container">
+      <div class="section-header centered fade-in">
+        <div class="section-eyebrow">Por qué elegirnos</div>
+        <h2 class="section-title">Lo que nos distingue en el mercado.</h2>
+        <p class="section-desc">En un mercado donde muchos improvisan, nosotros operamos con estructura.</p>
+      </div>
+      <div class="dif-grid fade-in">
+        <div class="dif-card">
+          <div class="dif-icon"><i class="fa-solid fa-file-contract"></i></div>
+          <h4>Proceso documentado de inicio a cierre</h4>
+          <p>Cada operación sigue un flujo definido. Nada se deja al azar — ni los contratos, ni las visitas, ni la entrega.</p>
+        </div>
+        <div class="dif-card">
+          <div class="dif-icon"><i class="fa-solid fa-user-tie"></i></div>
+          <h4>Asesor dedicado a tu caso</h4>
+          <p>No eres un lead en una lista. Tienes un asesor que conoce tu situación y te acompaña en cada paso del proceso.</p>
+        </div>
+        <div class="dif-card">
+          <div class="dif-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+          <h4>Transparencia en cada etapa</h4>
+          <p>Te decimos lo que otros no se atreven: si el precio no es el correcto, si la propiedad tiene riesgos, si el contrato necesita ajustes.</p>
+        </div>
+        <div class="dif-card">
+          <div class="dif-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <h4>8+ años de operación en Monterrey</h4>
+          <p>Conocemos el mercado local, las zonas, los precios reales y los tiempos. Esa experiencia trabaja a tu favor.</p>
+        </div>
+        <div class="dif-card">
+          <div class="dif-icon"><i class="fa-solid fa-magnifying-glass-dollar"></i></div>
+          <h4>Valuación honesta, no solo lo que quieres escuchar</h4>
+          <p>Nuestro análisis de mercado te da el precio correcto — no el más alto para ganarse el contrato, sino el que realmente funciona.</p>
+        </div>
+        <div class="dif-card">
+          <div class="dif-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h4>Respaldo jurídico en arrendamientos</h4>
+          <p>Trabajamos con póliza jurídica y contratos bien redactados. El propietario queda protegido desde el primer día.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ PROPIEDADES -->
+  <section class="section propiedades" id="propiedades">
+    <div class="container">
+      <div class="prop-banner fade-in">
+        <div class="prop-banner-text">
+          <div class="section-eyebrow" style="color:var(--naranja-s)">Portafolio activo</div>
+          <h2 class="section-title" style="color:var(--blanco)">Explora nuestras propiedades disponibles.</h2>
+          <p style="color:rgba(255,255,255,.75); margin-bottom:2rem">Venta y renta · Residencial, comercial e industrial · Monterrey y ZMM</p>
+          <a href="https://adbr.mx" target="_blank" class="btn-primary">
+            Ver propiedades en ADBR.mx <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+        <div class="prop-banner-nums">
+          <div class="prop-num">
+            <span class="prop-n">+100</span>
+            <span class="prop-l">Propiedades activas</span>
+          </div>
+          <div class="prop-num">
+            <span class="prop-n">ZMM</span>
+            <span class="prop-l">Cobertura completa</span>
+          </div>
+          <div class="prop-num">
+            <span class="prop-n">3</span>
+            <span class="prop-l">Tipos de mercado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ ASESORES -->
+  <section class="section asesores" id="asesores">
+    <div class="container">
+      <div class="section-header centered fade-in">
+        <div class="section-eyebrow">Nuestro equipo</div>
+        <h2 class="section-title">Conoce a los asesores ADBR.</h2>
+        <p class="section-desc">Cada asesor es un profesional certificado que conoce a fondo el mercado de Monterrey.</p>
+      </div>
+      <div class="asesores-grid fade-in" id="asesores-grid">
+        <!-- Cards generadas dinámicamente desde asesores.json -->
+        <div class="asesores-loading">
+          <i class="fa-solid fa-circle-notch fa-spin"></i>
+          <span>Cargando equipo...</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ CONTACTO -->
+  <section class="section contacto" id="contacto">
+    <div class="container">
+      <div class="contacto-grid">
+        <div class="contacto-info fade-in">
+          <div class="section-eyebrow">Contáctanos</div>
+          <h2 class="section-title">¿Listo para dar el siguiente paso?</h2>
+          <p style="color:var(--gris-txt); margin-bottom:2rem">Si un asesor ya te compartió esta página, contáctalo directamente desde el directorio. Si llegaste por tu cuenta, escríbenos y te asignamos el asesor ideal para tu caso.</p>
+          <div class="contacto-datos">
+            <a href="https://wa.me/528181431003" target="_blank" class="contacto-dato">
+              <div class="cd-icon"><i class="fa-brands fa-whatsapp"></i></div>
+              <div>
+                <strong>WhatsApp Oficina</strong>
+                <span>81 8143 1003</span>
+              </div>
+            </a>
+            <a href="https://adbr.mx" target="_blank" class="contacto-dato">
+              <div class="cd-icon"><i class="fa-solid fa-globe"></i></div>
+              <div>
+                <strong>Portal de propiedades</strong>
+                <span>adbr.mx</span>
+              </div>
+            </a>
+            <div class="contacto-dato no-link">
+              <div class="cd-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <strong>Oficina</strong>
+                <span>Loma Redonda 646, Col. Loma Larga<br/>Monterrey, N.L.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contacto-form fade-in">
+          <div class="form-card">
+            <h3>Envíanos un mensaje</h3>
+            <p class="form-sub">Te contactará el asesor más adecuado para tu necesidad.</p>
+            <div class="form-toggle">
+              <button class="ftog active" data-tipo="nuevo">No tengo asesor aún</button>
+              <button class="ftog" data-tipo="asesor">Ya tengo asesor</button>
+            </div>
+            <form id="contacto-form" action="https://formspree.io/f/REEMPLAZA_CON_TU_ID" method="POST">
+              <input type="hidden" name="tipo_contacto" id="tipo_contacto" value="nuevo" />
+              <div class="form-group">
+                <label>Nombre completo</label>
+                <input type="text" name="nombre" placeholder="Tu nombre" required />
+              </div>
+              <div class="form-group">
+                <label>Teléfono / WhatsApp</label>
+                <input type="tel" name="telefono" placeholder="81 XXXX XXXX" required />
+              </div>
+              <div class="form-group">
+                <label>¿Qué necesitas?</label>
+                <select name="necesidad" required>
+                  <option value="" disabled selected>Selecciona una opción</option>
+                  <option>Quiero vender mi propiedad</option>
+                  <option>Quiero rentar mi propiedad</option>
+                  <option>Busco comprar una propiedad</option>
+                  <option>Busco rentar una propiedad</option>
+                  <option>Otra consulta</option>
+                </select>
+              </div>
+              <div class="form-group" id="campo-asesor" style="display:none">
+                <label>¿Cuál es tu asesor?</label>
+                <input type="text" name="asesor" placeholder="Nombre del asesor" />
+              </div>
+              <div class="form-group">
+                <label>Mensaje (opcional)</label>
+                <textarea name="mensaje" rows="3" placeholder="Cuéntanos más sobre tu situación..."></textarea>
+              </div>
+              <button type="submit" class="btn-primary" style="width:100%; justify-content:center">
+                Enviar mensaje <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+            <p class="form-nota">* El formulario requiere configuración de Formspree — ver README para instrucciones.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
