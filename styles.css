@@ -856,3 +856,25 @@ a.contacto-dato:hover { box-shadow: var(--shadow); }
   .form-card { padding: 1.75rem; }
   .prop-banner-nums { flex-wrap: wrap; justify-content: center; }
 }
+
+/* ── LOGOS ───────────────────────────────────────────── */
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+  transition: opacity var(--trans);
+}
+.nav-logo-img:hover { opacity: .85; }
+
+/* When nav scrolls, logo needs to stay visible on white bg */
+.nav.scrolled .nav-logo-img {
+  filter: brightness(0) saturate(100%) invert(19%) sepia(53%) saturate(694%) hue-rotate(185deg) brightness(89%) contrast(95%);
+}
+
+.footer-logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
+  margin-bottom: .75rem;
+  opacity: .9;
+}
