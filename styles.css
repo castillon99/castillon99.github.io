@@ -924,3 +924,26 @@ a.contacto-dato:hover { box-shadow: var(--shadow); }
   filter: brightness(0) invert(1);
   opacity: .9;
 }
+
+/* ── LOGO HORIZONTAL TRANSPARENTE ────────────────────── */
+.nav-logo { display: flex; align-items: center; }
+.nav-logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1); /* blanco sobre hero oscuro */
+  transition: filter var(--trans), opacity var(--trans);
+}
+.nav-logo-img:hover { opacity: .85; }
+.nav.scrolled .nav-logo-img {
+  filter: none; /* colores originales sobre nav blanco */
+}
+
+.footer-logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
+  margin-bottom: .75rem;
+  filter: brightness(0) invert(1); /* blanco sobre footer oscuro */
+  opacity: .88;
+}
