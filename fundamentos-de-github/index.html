@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fundamentos de GitHub | Guía práctica</title>
+  <meta name="description" content="Guía práctica para principiantes: qué es GitHub, repositorios, commits, ramas, README, GitHub Pages, Issues, Pull Requests, errores comunes y herramientas útiles." />
+  <style>
+    :root{
+      --bg:#0f172a;--panel:#111827;--card:#1f2937;--soft:rgba(255,255,255,.07);--line:rgba(255,255,255,.14);
+      --text:#f8fafc;--muted:#cbd5e1;--blue:#38bdf8;--purple:#a78bfa;--green:#22c55e;--yellow:#f59e0b;--red:#fb7185;
+      --radius:22px;--shadow:0 24px 70px rgba(0,0,0,.35)
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top left,rgba(56,189,248,.22),transparent 32%),
+                 radial-gradient(circle at top right,rgba(167,139,250,.18),transparent 34%),var(--bg);
+      color:var(--text);line-height:1.6
+    }
+    a{color:inherit}.wrap{width:min(1180px,calc(100% - 32px));margin:auto;padding:26px 0 80px}
+    .nav{
+      position:sticky;top:14px;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:18px;
+      padding:13px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(15,23,42,.78);
+      backdrop-filter:blur(14px);box-shadow:0 12px 40px rgba(0,0,0,.25)
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.02em}
+    .mark{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),var(--purple));color:#07111f}
+    .links{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .links a{text-decoration:none;color:var(--muted);font-size:14px;padding:8px 10px;border-radius:999px}
+    .links a:hover{background:var(--soft);color:#fff}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:84px 0 48px}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border:1px solid rgba(56,189,248,.25);border-radius:999px;background:rgba(56,189,248,.1);color:#bae6fd;font-size:14px;margin-bottom:18px}
+    h1,h2,h3{margin:0;line-height:1.1;letter-spacing:-.04em}
+    h1{font-size:clamp(40px,8vw,84px)}
+    h2{font-size:clamp(30px,5vw,50px);margin-bottom:14px}
+    h3{font-size:23px;margin-bottom:10px}
+    .lead{font-size:19px;color:var(--muted);max-width:720px;margin:22px 0 28px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:999px;padding:13px 18px;font-weight:800;border:1px solid var(--line);background:#fff;color:#0f172a}
+    .btn.secondary{background:transparent;color:#fff}.btn:hover{transform:translateY(-1px)}
+    .hero-card{border:1px solid var(--line);background:rgba(17,24,39,.74);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+    .terminal{background:#020617;border:1px solid rgba(255,255,255,.12);border-radius:18px;overflow:hidden}
+    .bar{display:flex;gap:7px;padding:12px;border-bottom:1px solid rgba(255,255,255,.08);align-items:center}
+    .dot{width:11px;height:11px;border-radius:50%;background:#64748b}
+    .code{padding:18px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;color:#dbeafe;white-space:pre-wrap;overflow:auto}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{border:1px solid var(--line);background:rgba(255,255,255,.055);border-radius:var(--radius);padding:22px}
+    .card p,.section p,li{color:var(--muted)}
+    .tag{display:inline-block;font-size:12px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#bae6fd;margin-bottom:10px}
+    .section{padding:54px 0;border-top:1px solid rgba(255,255,255,.09)}
+    .two{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px;align-items:start}
+    .steps{counter-reset:step;display:grid;gap:14px}
+    .step{position:relative;border:1px solid var(--line);background:rgba(255,255,255,.055);border-radius:18px;padding:18px 18px 18px 58px}
+    .step:before{counter-increment:step;content:counter(step);position:absolute;left:17px;top:18px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),var(--purple));color:#08111f;font-weight:900}
+    .callout{border:1px solid rgba(245,158,11,.35);background:rgba(245,158,11,.08);border-radius:18px;padding:18px}.ok{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.08)}
+    .danger{border-color:rgba(251,113,133,.38);background:rgba(251,113,133,.08)}
+    .table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:18px;border:1px solid var(--line)}
+    .table th,.table td{text-align:left;padding:14px;border-bottom:1px solid var(--line);vertical-align:top}
+    .table th{background:rgba(255,255,255,.08);color:#fff}.table td{color:var(--muted)}
+    .toolbox{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .tool{border:1px solid var(--line);border-radius:18px;padding:18px;background:rgba(255,255,255,.055)}.tool strong{display:block;margin-bottom:6px}
+    .quiz{display:grid;gap:12px}.quiz button{width:100%;text-align:left;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#fff;border-radius:14px;padding:13px 14px;font:inherit;cursor:pointer}
+    .quiz button:hover{background:rgba(56,189,248,.13)}.answer{display:none;margin-top:10px;color:#bbf7d0}.answer.show{display:block}
+    .checklist{columns:2;column-gap:28px}.checklist li{break-inside:avoid;margin:0 0 10px}
+    .footer{padding:34px 0;color:var(--muted);text-align:center}.pill{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:7px 10px;margin:4px;color:var(--muted);font-size:13px;background:rgba(255,255,255,.05)}
+    code.inline{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.09);border-radius:8px;padding:2px 6px;color:#e0f2fe}
+    .copy{margin-left:auto;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.08);color:#fff;padding:6px 10px;cursor:pointer}
+    @media(max-width:850px){.hero,.two{grid-template-columns:1fr}.grid,.toolbox{grid-template-columns:1fr}.links{display:none}.checklist{columns:1}h1{font-size:42px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav" aria-label="Navegación principal">
+      <div class="brand"><span class="mark">GH</span> Fundamentos de GitHub</div>
+      <div class="links">
+        <a href="#problemas">Problemas</a><a href="#ruta">Ruta</a><a href="#herramientas">Herramientas</a><a href="#pages">Pages</a><a href="#comandos">Comandos</a><a href="#practica">Práctica</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <div class="eyebrow">Guía para empezar sin perderte</div>
+        <h1>GitHub explicado como si fuera tu primer proyecto real.</h1>
+        <p class="lead">Esta página es un tutorial práctico para entender qué puedes hacer con GitHub, por qué suele confundir al principio y cómo usarlo para crear páginas web, guardar código, documentar proyectos y trabajar con inteligencia artificial.</p>
+        <div class="actions">
+          <a class="btn" href="#ruta">Empezar la ruta</a>
+          <a class="btn secondary" href="#pages">Ver ejemplo de página web</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <h3>Idea central</h3>
+        <p>GitHub no es solo una carpeta en internet. Es una bitácora de cambios, un respaldo de proyectos y una plataforma para publicar, revisar y colaborar.</p>
+        <div class="terminal">
+          <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="code">proyecto/
+├─ index.html
+├─ style.css
+├─ README.md
+└─ historial de cambios
+   ├─ commit 1: crear portada
+   ├─ commit 2: ajustar diseño
+   └─ commit 3: publicar en GitHub Pages</div>
+        </div>
+      </aside>
+    </header>
+
+    <section id="problemas" class="section">
+      <span class="tag">Investigación práctica</span>
+      <h2>Complicaciones comunes al empezar</h2>
+      <p>La mayoría de los principiantes no se atora porque GitHub sea imposible, sino porque mezcla varios conceptos nuevos al mismo tiempo: archivos, repositorios, ramas, commits, publicación web y sincronización.</p>
+      <div class="grid">
+        <article class="card"><h3>1. Confundir Git con GitHub</h3><p>Git es el sistema que guarda versiones. GitHub es la plataforma en internet donde subes y administras esas versiones.</p></article>
+        <article class="card"><h3>2. No entender el repositorio</h3><p>Un repositorio es la carpeta principal del proyecto. Ahí viven los archivos y el historial de cambios.</p></article>
+        <article class="card"><h3>3. Miedo a romper algo</h3><p>Los commits permiten regresar a versiones anteriores. La lógica no es “guardar perfecto”, sino avanzar con puntos de restauración.</p></article>
+        <article class="card"><h3>4. Perderse con ramas</h3><p>Una rama sirve para probar cambios sin tocar la versión principal. Al principio puedes trabajar en <code class="inline">main</code>, pero conviene aprender ramas pronto.</p></article>
+        <article class="card"><h3>5. GitHub Pages no carga</h3><p>Suele pasar por nombres incorrectos, archivos fuera de lugar, falta de <code class="inline">index.html</code>, mayúsculas/minúsculas o configuración de rama.</p></article>
+        <article class="card"><h3>6. Subir archivos sin README</h3><p>Sin README, el proyecto queda sin explicación. El README es la portada escrita del repositorio.</p></article>
+      </div>
+    </section>
+
+    <section id="ruta" class="section">
+      <span class="tag">Ruta sugerida</span>
+      <h2>Orden correcto para aprender GitHub</h2>
+      <div class="two">
+        <div class="callout ok"><h3>Regla de oro</h3><p>Primero aprende GitHub desde la interfaz web. Después usa VS Code, GitHub Desktop o comandos. No intentes aprender todo al mismo tiempo.</p></div>
+        <div class="steps">
+          <div class="step"><h3>Crear o abrir un repositorio</h3><p>Piensa en él como la carpeta madre del proyecto. Para una página simple necesitas al menos un archivo <code class="inline">index.html</code>.</p></div>
+          <div class="step"><h3>Editar archivos</h3><p>Puedes crear archivos desde GitHub, subirlos manualmente o editarlos desde un programa como VS Code.</p></div>
+          <div class="step"><h3>Hacer commits</h3><p>Cada commit debe describir qué cambiaste: “Crear portada”, “Agregar sección de contacto”, “Corregir estilo móvil”.</p></div>
+          <div class="step"><h3>Publicar con GitHub Pages</h3><p>Activa Pages desde Settings → Pages. Normalmente se publica desde la rama <code class="inline">main</code> y la carpeta raíz o <code class="inline">/docs</code>.</p></div>
+          <div class="step"><h3>Documentar con README</h3><p>Explica qué hace el proyecto, cómo abrirlo, qué archivos contiene y qué cambios planeas hacer.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="herramientas" class="section">
+      <span class="tag">Herramientas que muchos no conocen</span>
+      <h2>GitHub sirve para más que guardar código</h2>
+      <div class="toolbox">
+        <div class="tool"><strong>README.md</strong><p>Documento principal del proyecto. Sirve para explicar qué es, cómo se usa y qué falta por hacer.</p></div>
+        <div class="tool"><strong>GitHub Pages</strong><p>Publica páginas web estáticas gratis desde un repositorio. Ideal para practicar HTML, CSS y JavaScript.</p></div>
+        <div class="tool"><strong>Issues</strong><p>Lista de pendientes, errores o ideas. Puedes usarlos como mini tablero de trabajo.</p></div>
+        <div class="tool"><strong>Pull Requests</strong><p>Propuesta formal de cambios. Permite revisar antes de unirlos a la rama principal.</p></div>
+        <div class="tool"><strong>Branches</strong><p>Copias paralelas del proyecto para experimentar sin arriesgar la versión estable.</p></div>
+        <div class="tool"><strong>GitHub Desktop</strong><p>Aplicación visual para sincronizar cambios sin usar comandos. Muy útil para principiantes.</p></div>
+        <div class="tool"><strong>VS Code</strong><p>Editor de código. Permite abrir carpetas, editar archivos y conectarse con GitHub.</p></div>
+        <div class="tool"><strong>Actions</strong><p>Automatizaciones. Más adelante puede servir para revisar, construir o publicar proyectos automáticamente.</p></div>
+      </div>
+    </section>
+
+    <section id="pages" class="section">
+      <span class="tag">Ejemplo práctico</span>
+      <h2>Cómo se publica una página web simple</h2>
+      <p>Una página web básica puede vivir en un solo archivo llamado <code class="inline">index.html</code>. GitHub Pages busca ese archivo para saber qué mostrar al visitante.</p>
+      <div class="terminal">
+        <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><button class="copy" onclick="copyCode('htmlExample')">Copiar</button></div>
+        <div class="code" id="htmlExample">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;title&gt;Mi primera página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hola, GitHub Pages&lt;/h1&gt;
+  &lt;p&gt;Esta página está publicada desde un repositorio.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div>
+      </div>
+      <div class="callout" style="margin-top:18px"><h3>Errores típicos en Pages</h3><p>El archivo se llama <code class="inline">Index.html</code> en vez de <code class="inline">index.html</code>; está dentro de una carpeta equivocada; Pages está apuntando a otra rama; el sitio tarda unos minutos en actualizar; o el navegador muestra caché vieja.</p></div>
+    </section>
+
+    <section id="comandos" class="section">
+      <span class="tag">Comandos base</span>
+      <h2>Comandos que verás cuando avances</h2>
+      <table class="table">
+        <thead><tr><th>Comando</th><th>Qué significa</th><th>Cuándo lo usarías</th></tr></thead>
+        <tbody>
+          <tr><td><code class="inline">git status</code></td><td>Revisa qué archivos cambiaron.</td><td>Antes de guardar un avance.</td></tr>
+          <tr><td><code class="inline">git add .</code></td><td>Prepara todos los cambios para guardarlos.</td><td>Cuando ya sabes qué quieres incluir en el commit.</td></tr>
+          <tr><td><code class="inline">git commit -m "mensaje"</code></td><td>Guarda una versión con descripción.</td><td>Después de agregar cambios.</td></tr>
+          <tr><td><code class="inline">git push</code></td><td>Sube tus commits a GitHub.</td><td>Cuando quieres que el repositorio en línea se actualice.</td></tr>
+          <tr><td><code class="inline">git pull</code></td><td>Baja cambios desde GitHub.</td><td>Cuando trabajas desde otra computadora o con más personas.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="practica" class="section">
+      <span class="tag">Práctica guiada</span>
+      <h2>Mini proyecto recomendado</h2>
+      <div class="two">
+        <div>
+          <h3>Construye una página de prueba</h3>
+          <p>Objetivo: crear una página personal sencilla para aprender el flujo completo sin complicarte con frameworks.</p>
+          <ul class="checklist">
+            <li>Crear un repositorio.</li><li>Agregar <code class="inline">index.html</code>.</li><li>Agregar título y texto.</li><li>Hacer commit.</li><li>Activar GitHub Pages.</li><li>Crear README.</li><li>Agregar una sección nueva.</li><li>Hacer segundo commit.</li><li>Crear un Issue con una mejora pendiente.</li><li>Cerrar el Issue al terminar.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Preguntas rápidas</h3>
+          <div class="quiz">
+            <button onclick="toggleAnswer('a1')">¿Qué diferencia hay entre commit y push?</button><div id="a1" class="answer">Commit guarda una versión en tu historial. Push sube esa versión a GitHub.</div>
+            <button onclick="toggleAnswer('a2')">¿Necesito saber comandos para usar GitHub?</button><div id="a2" class="answer">No al inicio. Puedes empezar con la interfaz web o GitHub Desktop. Los comandos ayudan después.</div>
+            <button onclick="toggleAnswer('a3')">¿Por qué mi página no se ve?</button><div id="a3" class="answer">Revisa que exista index.html, que Pages esté activado, que estés en la rama correcta y que el nombre del archivo esté en minúsculas.</div>
+            <button onclick="toggleAnswer('a4')">¿Qué debería poner en el README?</button><div id="a4" class="answer">Qué hace el proyecto, cómo abrirlo, qué archivos contiene, qué aprendiste y qué falta por mejorar.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="tag">Mapa mental</span>
+      <h2>Traducción sencilla de conceptos</h2>
+      <p><span class="pill">Repositorio = carpeta del proyecto</span><span class="pill">Commit = punto de guardado</span><span class="pill">Branch = versión alternativa</span><span class="pill">Pull Request = propuesta de cambio</span><span class="pill">Issue = pendiente o problema</span><span class="pill">README = explicación del proyecto</span><span class="pill">GitHub Pages = publicación web</span></p>
+      <div class="callout danger"><h3>Consejo final</h3><p>No empieces intentando crear una aplicación grande. Empieza con páginas pequeñas, cambios pequeños y commits frecuentes. GitHub se entiende mejor cuando lo usas como bitácora, no como examen técnico.</p></div>
+    </section>
+
+    <footer class="footer">Proyecto: Fundamentos de GitHub · Página independiente dentro del repositorio · No modifica la portada principal.</footer>
+  </div>
+
+  <script>
+    function toggleAnswer(id){document.getElementById(id).classList.toggle('show')}
+    function copyCode(id){
+      const text=document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(()=>alert('Código copiado'))
+    }
+  </script>
+</body>
+</html>
