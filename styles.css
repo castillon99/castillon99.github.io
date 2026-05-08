@@ -878,3 +878,49 @@ a.contacto-dato:hover { box-shadow: var(--shadow); }
   margin-bottom: .75rem;
   opacity: .9;
 }
+
+/* ── NAV LOGO v2 ─────────────────────────────────────── */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+.nav-logo-img {
+  height: 38px !important;
+  width: auto;
+  display: block;
+  transition: opacity var(--trans);
+  filter: brightness(0) invert(1); /* white on dark bg */
+}
+.nav-logo-img:hover { opacity: .85; }
+.nav.scrolled .nav-logo-img {
+  filter: none; /* show original colors on white bg */
+}
+.nav-logo-text {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--blanco);
+  letter-spacing: .02em;
+  transition: color var(--trans);
+  line-height: 1.1;
+}
+.nav-logo-sub {
+  display: block;
+  font-size: .65rem;
+  font-weight: 400;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .8;
+}
+.nav.scrolled .nav-logo-text { color: var(--azul); }
+
+/* ── FOOTER LOGO v2 ──────────────────────────────────── */
+.footer-logo-img {
+  height: 48px !important;
+  width: auto;
+  display: block;
+  margin-bottom: .75rem;
+  filter: brightness(0) invert(1);
+  opacity: .9;
+}
